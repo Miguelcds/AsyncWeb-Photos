@@ -14,8 +14,5 @@ export const  Header = () => `
           <input type="text" id="searchInput" placeholder="Que buscas..."/>
           <button id="searchBtn"> Buscar </button>
         </div>
-
-        
-
       </nav>
 `

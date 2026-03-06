@@ -9,8 +9,6 @@ export const Home = () => {
     <input type="text" id="searchImage" />
       <button></button>
       <ul class="list"></ul>
-
-   
     
     `
 
