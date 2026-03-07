@@ -1,6 +1,9 @@
-import "./Footer.css"
-
+import "./Footer.css";
 
 export const Footer = () => `
-<h3> Todos los derechos Reservados a Pintarest 2024 </h3>
-`
+<footer>
+  <span>© 2026 Pintarest — Fotos de <a href="https://unsplash.com" target="_blank">Unsplash</a></span>
+  <span>Dev -- Joao Costa -- </span>
+  <span id="footerQuery"></span>
+</footer>
+`;

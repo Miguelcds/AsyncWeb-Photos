@@ -1,0 +1,66 @@
+/* ─── ABOUT ──────────────────────────────────────────────────── */
+.about-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 80px 48px 120px;
+}
+
+.about-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose);
+  background: rgba(201,120,106,.1);
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+}
+
+.about-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 60px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--charcoal);
+  margin-bottom: 32px;
+}
+.about-title em { font-style: italic; color: var(--rose); }
+
+.about-body {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.about-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--blush);
+  margin: 40px 0;
+  border-radius: 1px;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.tech-tag {
+  font-size: 13px;
+  font-weight: 400;
+  padding: 7px 16px;
+  background: var(--warm-white);
+  border: 1.5px solid var(--light-mid);
+  border-radius: 50px;
+  color: var(--mid);
+}
+
+@media (max-width: 768px) {
+  .about-wrap { padding: 48px 16px 120px; }
+}
