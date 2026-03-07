@@ -1,46 +1,5 @@
-section{
-    display: grid;
-    margin-top: 100px;
-}
-
-#result {
-  width: 100%;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
- 
-}
-
-li{
-   text-align: center;
-    width: 100%;
-    height: 100%;
-    
-    
-}
-
-li > img {
-      width: 90%; 
-     height: 90%;
-     /* object-fit: cover;  */
-     object-fit:fill;
-     border-radius: 5%;
- 
-}
-
-#resultMessage{
-  text-align: center;
-  /* background-color: red; */
-  text-transform: uppercase;
-  width: 100%;
-  height: 100%;
-  /* padding-bottom: 10px; */
-
-}
-
-@media (max-width: 400px ) {
-  #resultMessage{
-    padding-bottom: 100px;
-  }
+/* Main sólo actúa como contenedor de páginas, el estilo
+   de cada página va en su propio CSS. */
+#main {
+  min-height: 100vh;
 }
