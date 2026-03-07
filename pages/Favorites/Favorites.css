@@ -1,0 +1,29 @@
+/* ─── FAVORITES ──────────────────────────────────────────────── */
+.favorites-header {
+  padding: 48px 48px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.empty-fav {
+  text-align: center;
+  padding: 80px 24px 120px;
+}
+.empty-fav .icon         { font-size: 60px; margin-bottom: 24px; }
+.empty-fav h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+.empty-fav p  {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--mid);
+  margin-bottom: 28px;
+}
+
+@media (max-width: 768px) {
+  .favorites-header { padding: 32px 16px 16px; }
+}

@@ -1,27 +1,240 @@
-* {
+/* ─── RESET & VARIABLES ─────────────────────────────────────── */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --cream:       #faf7f2;
+  --warm-white:  #f5f0e8;
+  --blush:       #e8c4b8;
+  --rose:        #c9786a;
+  --deep-rose:   #a05a4e;
+  --charcoal:    #2a2420;
+  --mid:         #6b5c56;
+  --light-mid:   #c4b5af;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'Outfit', sans-serif;
+  --shadow:       0 4px 24px rgba(42,36,32,0.10);
+  --shadow-hover: 0 12px 48px rgba(42,36,32,0.18);
+  --radius:       14px;
+  --transition:   0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+html { scroll-behavior: smooth; }
+
 body {
-  background: rgb(238, 174, 202);
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(188, 233, 148, 1) 100%
-  );
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--charcoal);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-ul {
-  list-style: none;
+ul { list-style: none; }
+
+/* ─── SCROLLBAR ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--warm-white); }
+::-webkit-scrollbar-thumb { background: var(--blush); border-radius: 3px; }
+
+/* ─── PAGE TRANSITIONS ───────────────────────────────────────── */
+.page {
+  display: none;
+  min-height: 100vh;
+  padding-top: 70px;
+  animation: pageIn 0.5s var(--transition) both;
+}
+.page.active { display: block; }
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.error{
+/* ─── BOTONES GLOBALES ───────────────────────────────────────── */
+.btn-primary {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 32px;
+  background: var(--charcoal);
+  color: var(--cream);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+}
+.btn-primary:hover {
+  background: var(--rose);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(201,120,106,0.4);
+}
+
+.btn-secondary {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--charcoal);
+  border: 1.5px solid var(--light-mid);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-secondary:hover {
+  border-color: var(--charcoal);
+  background: var(--warm-white);
+  transform: translateY(-2px);
+}
+
+/* ─── TIPOGRAFÍA COMPARTIDA ──────────────────────────────────── */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--rose);
+}
+
+/* ─── MASONRY COMPARTIDO ─────────────────────────────────────── */
+.masonry-wrap {
+  padding: 0 40px 100px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.masonry-grid {
+  columns: 4;
+  column-gap: 12px;
+}
+@media (max-width: 1100px) { .masonry-grid { columns: 3; } }
+@media (max-width: 750px)  { .masonry-grid { columns: 2; } }
+@media (max-width: 450px)  { .masonry-grid { columns: 1; } }
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--warm-white);
+  animation: itemIn 0.5s both;
+}
+@keyframes itemIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.masonry-item:hover img { transform: scale(1.05); }
+
+.item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(42,36,32,.8) 0%, rgba(42,36,32,.1) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14px;
+}
+.masonry-item:hover .item-overlay { opacity: 1; }
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.item-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 16px;
+  text-decoration: none;
+}
+.btn-heart           { background: white; color: var(--charcoal); }
+.btn-heart:hover     { background: var(--rose); color: white; transform: scale(1.1); }
+.btn-heart.loved     { background: var(--rose); color: white; }
+.btn-dl              { background: rgba(255,255,255,.15); color: white; backdrop-filter: blur(4px); }
+.btn-dl:hover        { background: white; color: var(--charcoal); transform: scale(1.1); }
+
+.item-author {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,.8);
+}
+
+/* ─── SKELETON ───────────────────────────────────────────────── */
+.skeleton-grid {
+  columns: 4;
+  column-gap: 12px;
+  padding: 0 40px;
+  margin-bottom: 40px;
+}
+@media (max-width: 1100px) { .skeleton-grid { columns: 3; } }
+@media (max-width: 750px)  { .skeleton-grid { columns: 2; } }
+
+.skeleton-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--warm-white) 25%, var(--blush) 50%, var(--warm-white) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── ERROR ──────────────────────────────────────────────────── */
+.error-page {
   text-align: center;
-  padding: 100px;
+  padding: 120px 24px;
+}
+.error-page h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--mid);
 }
 
-
-
-
+/* ─── RESPONSIVE GLOBAL ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .masonry-wrap   { padding: 0 16px 100px; }
+  .skeleton-grid  { padding: 0 16px; }
+}
