@@ -105,6 +105,10 @@ npm run build
 
 Este proyecto usa la [Unsplash API](https://unsplash.com/developers) en su plan gratuito (50 peticiones/hora en modo demo).
 
+Las Claves iran expuestas, pero es de uso limitado! 
+
+Si quieras mas, solo tendras que cambiar la clave en el main, clonado el repositorio en tu PC.
+
 | Endpoint | Uso |
 |---|---|
 | `GET /search/photos` | Búsqueda de imágenes por término |
@@ -121,3 +125,5 @@ Todas las imágenes pertenecen a sus respectivos autores en [Unsplash](https://u
 ## 📄 Licencia
 
 MIT — libre para usar, modificar y distribuir.
+
+
