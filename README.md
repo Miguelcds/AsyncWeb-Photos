@@ -1,4 +1,4 @@
-# Pintarest 🌸
+# Pintarest - Custom Version 
 
 Aplicación de búsqueda visual de imágenes construida con **JavaScript vanilla + Vite**, conectada a la API de Unsplash. Proyecto de portfolio desarrollado para practicar arquitectura de componentes, consumo de APIs REST y diseño UI responsive.
 
